@@ -1,0 +1,97 @@
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit player</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/player?_method=PUT" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control name" id="name" name="name"
+                            placeholder="Enter the player name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image:</label>
+                        <input type="text" class="form-control image" id="image" name="image"
+                            placeholder="Enter the player image link" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="nation">Nation: </label>
+                            <select class="form-select" id="nation" name="nation" required>
+                                <!-- <option selected>Brazil</option> -->
+                                <%for (let nation of nations){ %>
+                                    <option selected value="<%=nation.name%>">
+                                        <%=JSON.stringify(nation._id)===JSON.stringify(players.nation_id) ? 'selected' : '' %>
+                                        <%= nation.name %>
+                                    </option>
+                                    <%}%>
+                            </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="form-label" for="club">Club: </label>
+                            <select class="form-select club" id="club" name="club">
+                                <%for (let club of clubList){ %>
+                                    <option value="<%= club.name %>"
+                                        <%=JSON.stringify(club.name)===JSON.stringify(players.club) ? 'selected' : '' %>>
+                                        <%= club.name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
+
+                        <div class="col-4">
+                            <label class="form-label" for="position">Position: </label>
+                            <select class="form-select position" id="position" name="position">
+                                <%for (let position of positionList){ %>
+                                    <option value="<%= position.name %>"
+                                        <%=JSON.stringify(position.name)===JSON.stringify(players.position) ? 'selected'
+                                        : '' %>><%= position.name %>
+                                            %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
+
+                        <div class="col-3">
+                            <label for="goals">Goals: </label>
+                            <input type="number" class="form-control goals" id="goals" name="goals" placeholder=""
+                                required />
+                        </div>
+                    </div>
+
+                    <fieldset class="row">
+                        <legend class="col-form-label col-2 pt-0">Captain</legend>
+                        <div class="col-5">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="isCaptain" id="true" value="true"
+                                    checked>
+                                <label class="form-check-label" for="true">
+                                    True
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="isCaptain" id="false" value="false">
+                                <label class="form-check-label" for="false">
+                                    False
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="id" name="id" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Player</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/player" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            placeholder="Enter the player name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image:</label>
+                        <input type="text" class="form-control" id="image" name="image"
+                            placeholder="Enter the player image link" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="nation">Nation: </label>
+                            <select class="form-select" id="nation" name="nation" required>
+                                <option selected>Choose Nation</option>
+                                <%for (let nation of nations){ %>
+                                    <option value="<%=nation.name%>">
+                                        <%= nation.name %>
+                                    </option>
+                                    <%}%>
+                            </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="form-label" for="club">Club: </label>
+                            <select class="form-select" id="club" name="club" required>
+                                <option selected>Choose club</option>
+                                <%for (let club of clubList){ %>
+                                    <option value="<%=club.name%>">
+                                        <%= club.name %>
+                                    </option>
+                                    <%}%>
+                            </select>
+                        </div>
+
+                        <div class="col-4">
+                            <label class="form-label" for="position">Position: </label>
+                            <select class="form-select" id="position" name="position" required>
+                                <option selected>Choose position</option>
+                                <%for (let position of positionList){ %>
+                                    <option value="<%=position.name%>">
+                                        <%= position.name %>
+                                    </option>
+                                    <%}%>
+                            </select>
+                        </div>
+
+                        <div class="col-3">
+                            <label for="goals">Goals: </label>
+                            <input type="number" class="form-control" id="goals" name="goals" placeholder="" required />
+                        </div>
+                    </div>
+
+                    <fieldset class="row">
+                        <legend class="col-form-label col-2 pt-0">Captain</legend>
+                        <div class="col-5">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="isCaptain" id="true" value="true"
+                                    checked>
+                                <label class="form-check-label" for="true">
+                                    True
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="isCaptain" id="false" value="false">
+                                <label class="form-check-label" for="false">
+                                    False
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

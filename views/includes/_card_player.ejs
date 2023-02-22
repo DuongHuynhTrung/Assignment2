@@ -1,0 +1,60 @@
+<div id="dataTablePlayer" class="row my-2" >
+  <% players.forEach(e=> { %>
+    <div class="col-sm-12 col-md-4 col-lg-3">
+      <div class="card my-2 mx-1">
+        <img src="<%= e.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">
+            <b>
+              <%= e.name %>
+            </b>
+          </h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Club: <%= e.club%>
+            </li>
+            <li class="list-group-item">
+              Nation: <% nations.forEach(nation =>{ %>
+                <% if (JSON.stringify(nation._id) === JSON.stringify(e.nation_id)){ %> <%= nation.name%> <%}%>
+                <%})%> 
+            </li>
+            <li class="list-group-item"> 
+              Position: <%= e.position%>
+            </li>
+            <li class="list-group-item">
+              Goals: <%= e.goals%>
+            </li>
+            <li class="list-group-item">
+              Captain: 
+              <% if (e.isCaptain) {%> 
+                <img src="../../public/images/check-png.webp" class="mark-icon" alt="...">
+                <%}else{%>
+                  <img src="../../public/images/x-png.png" class="mark-icon" alt="...">
+                <%}%>
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-lg-6 col-md-12 my-1 col-sm-12">
+              <a href="javascript:void()" class="btn btn-block btn-info button-update" data-id="<%= e.id %>"
+                data-name="<%= e.name %>" data-image="<%= e.image %>" data-club="<%= e.club %>"
+                data-position="<%= e.position %>" data-goals="<%= e.goals %>" data-isCaptain="<%= e.isCaptain %>"
+                data-nationid="<% nations.forEach(nation =>{ %>
+                  <% if (JSON.stringify(nation._id) === JSON.stringify(e.nation_id)){ %> <%= nation.name%> <%}%>
+                  <%})%>">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="col-lg-6 col-md-12 my-1 col-sm-12">
+              <form action="/player/<%= e.id %>?_method=DELETE" method="POST">
+                <button class="btn btn-block btn-danger" type="submit"
+                  onclick="return confirm('Are you sure want to delete this player ?')">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+</div>

@@ -1,0 +1,87 @@
+.navbar {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.nav-item {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.footer-basic {
+  padding: 20px 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.mark-icon {
+  height: 15px !important;
+  width: auto;
+}
+
+.card {
+  min-height: 400px;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  transition: ease-in-out .5s;
+}
+
+.card img {
+  width: auto;
+  height: 200px;
+  background-position: center;
+  object-fit: cover;
+  object-position: 80% 10%;
+}
+
+.form-select, #goals{
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.379);
+  height: 40px;
+}
+
+fieldset {
+  margin-top: 16px !important;
+}
+
+.col-5 {
+  margin-left: 15px !important;
+}
+
+.flag-nation {
+  width: 50px;
+  height: 35px;
+  object-fit: cover;
+}
+
+main {
+  background-image: url("https://i.ex-cdn.com/nhadautu.vn/files/content/2022/10/26/world-cup-2022-2033.jpg");
+}
+
+.container {
+  padding: 10px 0;
+}
